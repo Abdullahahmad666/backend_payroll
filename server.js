@@ -15,6 +15,7 @@
 const express = require("express");
 const mongoose = require("mongoose");
 const cors = require("cors");
+require("dotenv").config();
 
 const app = express();
 const PORT = process.env.PORT || 5000;
@@ -57,6 +58,10 @@ const payrollSchema = new mongoose.Schema({
   payDate: Date,
 });
 const Payroll = mongoose.model("Payroll", payrollSchema);
+
+app.get("/", (req, res) => {
+  res.send("API is running on Vercel!");
+});
 
 // ----------------- EMPLOYEE CRUD --------------------
 
