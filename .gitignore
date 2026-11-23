@@ -1,0 +1,13 @@
+# dependencies
+node_modules/
+
+# secrets — never commit these
+.env
+.env.*
+!.env.example
+
+# logs
+*.log
+
+# vercel
+.vercel
