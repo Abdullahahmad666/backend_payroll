@@ -9,8 +9,7 @@
  * Dependencies:
  *   npm install express mongoose cors
  * 
- * Make sure MongoDB is running locally on: mongodb://localhost:27017/payrollDB
- * or update the connection string if needed.
+ * Set MONGO_URI in a .env file (local) or in Vercel environment variables.
  */
 const express = require("express");
 const mongoose = require("mongoose");
@@ -25,7 +24,7 @@ app.use(express.json());
 app.use(cors());
 
 // Connect to MongoDB (adjust if needed)
-mongoose.connect("mongodb+srv://ahmadirfansethi360:arsenal360@cluster0.nbpmuxy.mongodb.net/?retryWrites=true&w=majority&appName=Cluster0", {
+mongoose.connect(process.env.MONGO_URI, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
